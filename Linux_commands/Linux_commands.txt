@@ -1,0 +1,9 @@
+# ps =>  list all current process
+ps -A => it will list All Current working processes
+
+----------------------------------------------
+
+echo $$ => it gives the pid of current process 
+
+----------------------------------------------
+

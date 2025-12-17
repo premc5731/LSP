@@ -1,0 +1,20 @@
+there is a global variable errno which is availabel to all the process and it holds the error no of the last sys call
+you have to include <errno.h> header file
+default value is 0
+here errors are runtime errors
+and all the things related to syscall are stored in the URAEA
+
+to do :-
+drive, whats app
+folder icon in vs code
+font style in vs code
+terminal left big name to small
+clear to cls
+battery remaining time 
+exec_1.c
+
+lseek can only be used in "regular" file
+
+windows have a "pagefile.sys" is a swap partition which is approx 3 to 4 gb generally page file is of 25% of our RAM and it is a "whole in the file" and the .sys files are system files and pagefile.sys is used for swap in and swap out if the space in RAM is full
+
+in todays os it gives by default 4kb but it is virtual practically it gives only 1kb to write and after that 1kb then it gives another 1kb to write 
