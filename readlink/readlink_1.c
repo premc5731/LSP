@@ -7,17 +7,17 @@
 int main()
 {
     int fd = 0;
-    fd = open("./test/lspl.txt", O_RDONLY);
+    fd = open("./test/lspl.txt", O_RDONLY); // Error 
 
     if(fd == -1)
     {
-        printf("Unable to open file\n");
+        printf("Unable to open file : %s \n",strerror(errno));
         return -1;
     }
 
     printf("file opened wih fd : %d \n",fd);
 
-    
+
     close(fd);
 
     return 0;
