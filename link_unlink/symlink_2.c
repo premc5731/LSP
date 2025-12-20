@@ -6,7 +6,7 @@
 int main()
 {
     int iRet = 0;
-    iRet = symlink("Demo.txt", "Hellox.txt");
+    iRet = symlink("./lsp.txt", "../test/lspl.txt");
 
     if(iRet == 0)
     {
