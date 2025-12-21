@@ -3,9 +3,9 @@
 #include<stdlib.h>
 #include<fcntl.h>
 
-// pread here p == positional
+// pwrite here p == positional
 /*
-it is used to read the data without changing or effecting the offset widely used in muli thread application */
+it is used to write the data without changing or effecting the offset widely used in multi thread application */
 
 int main()
 {
