@@ -6,7 +6,7 @@
 
 int main()
 {
-    char Arr[50];
+    char Arr[4096];
     memset(Arr, '\0', sizeof(Arr));
 
     getcwd(Arr, sizeof(Arr));
