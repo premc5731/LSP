@@ -62,6 +62,7 @@ Memory Management
     calloc()
     realloc()
     free()
+    mmap()
 
 ----------------------------
 
@@ -72,8 +73,12 @@ process subsystem
     getpid()
     getppid()
     wait()
+    waitpid()
     sleep()
     exit()
     _exit()
-
+    atexit()
+    nice() (priority)
+    getpriority()
+    setpriority()
 */

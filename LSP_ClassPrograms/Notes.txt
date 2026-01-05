@@ -10,4 +10,55 @@ windows have a "pagefile.sys" is a swap partition which is approx 3 to 4 gb gene
 
 in todays os it gives by default 4kb but it is virtual practically it gives only 1kb to write and after that 1kb then it gives another 1kb to write 
 --------------------------------------------------------------
+
 rename just update the entry of the directory file 
+
+--------------------------------------------------------------
+04-01-2026
+
+wait() syscall is used to synchronise the parent execution with the death of first dead xchild
+
+orphand process:
+a process which is a child process of a parent whose parent is death then child process becomes orphand process
+
+Daemon process:
+a process which runs in the background without interacting with the user
+
+Zombie process:
+a process which is in state "9" i.e at this state the kernel will do acounting of that process like
+this process takes how much time
+this process creaeted how many child process
+this proces took how much time
+
+so that os learns how to handle such process if such process comes again
+
+*** if your process dont have wait() syscall then it is wrong because if parent dont call wait() then child process entry in the process table still exist so which is wrong  so child process will be zombie state , so now question is how much time the entry will be still in the process table one of the reason is till the process table touches the threshold i.e maximum process can be created in the PC if it hits then the zombie processs are terminated so this cant be predicted
+pot example 17 liters for threshold 20 litres , 3 litres threshold
+
+
+wait() is used to remove the entry of child from process table thats why child becomes zombie if wait is not there 
+
+# ps -elf to ge the state of running processs and if state is "Z" then it is in zombie process
+
+
+TTY = tele typed terminal  i.e multi user for single os or kernel
+
+in todays linux kernel will periodically scan the process table so zombie process entry in the peocess table is removed ASAP
+
+in linux priority is called as "nice value" 
+range of priority in linux is -20 to 19
+highest is -20
+
+average priority is 0
+
+brk is used for data section
+
+brk, sbrk correct in notes yesterday
+
+------
+mmap() will read the data directly from the block of the HDD and stored in the local buffer that we will be passing
+where as in in normal read() whole inode will be copied int IIT then block will be copied into system buffer then copied into local buffer this is time consuming
+
+thats why mmap where directly data from block is copied into local buffer it is very advance and fast way of file io
+
+ball with rubber band example fro mmap() and unmap()
