@@ -1,0 +1,13 @@
+** Random access is not allowed in IPC 
+
+in pipe if if pipe is empty and i receivevr is calling read sys call if file is pipe then the receiver process is blocked
+
+there is a seperate partition in HDD i.e pipe device in hdd 
+in pipe it also get the inode and max size of pipe file is 10kb onlt because in 13 member array first 10 blocks are direct blocks so pipe has 10kb only 
+
+*** after pipe is created by server and after termination of server then the file is already there in the hdd but data is not there in that file so file is empty
+
+
+unnamed pipe()
+pipefd[0] => read
+pipefd[1] => write

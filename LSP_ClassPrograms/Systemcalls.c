@@ -63,6 +63,7 @@ Memory Management
     realloc()
     free()
     mmap()
+    munmap()
 
 ----------------------------
 
@@ -81,4 +82,17 @@ process subsystem
     nice() (priority)
     getpriority()
     setpriority()
+
+Inter process Sub system
+    mkfifo()
+    pipe()
+    shmget()
+    shmat()
+    shmdt()
+    msgget()
+    msgsnd()
+    msgrcv()
+    signal()
+    kill()
+
 */
