@@ -26,5 +26,8 @@ int main()
     close(fd);
 
     printf("Number of small characters : %d\n",iCount);
+
+    write(1, &iCount, sizeof(int));
+
     return 0;
 }

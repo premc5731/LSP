@@ -26,5 +26,7 @@ int main()
     close(fd);
 
     printf("Number of capital characters : %d\n",iCount);
+
+    write(1, &iCount, sizeof(int));
     return 0;
 }
