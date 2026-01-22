@@ -11,3 +11,28 @@ in pipe it also get the inode and max size of pipe file is 10kb onlt because in 
 unnamed pipe()
 pipefd[0] => read
 pipefd[1] => write
+
+-------------------------------------------------------------------------------------------
+
+date :- 17 | 01 | 2026
+
+in fork() sys call there will be copy of TDS of parent to child 
+so here there will be copy of Text and Data will be created but the copy of text section is not created again  the 
+child process is using the text section of the parent using the concept of shared memory , because the region of Text is static it wont change at runtime , in this way it kaernel saves resource
+
+ftok() this function is used to get a token which is created using some hashing algorithn this unique value used in shared memory by two process to point the same shared memory
+ftok() requirs a file name so we give current directory
+
+in shared memory synchronization is little bit tough
+but shared memory is fastes IPC because he no middle men peer to peer connection
+
+in message queue here data transfer is done with the help of kernel
+
+in signal also kernel is used 
+
+in linux we have 2 types of inbuilt signal and user defined signal
+kill() it is  sys call used to send signal 
+
+by default if your process gets kill() then your process gets terminate over there it is like process is doing suicide 
+
+signal() it is a syscall used to send a signal with telling to perform the event handler

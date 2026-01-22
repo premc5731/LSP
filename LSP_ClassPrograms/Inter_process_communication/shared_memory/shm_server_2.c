@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<sys/shm.h>
+#include<stdlib.h>
+#include<errno.h>
+
+int main()
+{
+    int id = 0;
+    char *ptr = NULL;
+
+    id = shmget(12, 4096, 0666 | IPC_CREAT);
+
+    if(id == -1)
+    {
+        printf("Failed to allocate shared memory\n");
+        perror("Error\n");
+        return -1;
+    }
+    
+    ptr = shmat(id, NULL, 0);
+
+    if(ptr == (char *)-1)
+    {
+        printf("Unable to attach memory\n");
+        perror("Error\n");
+        return -1;
+    }
+
+    *ptr = "L";
+    ptr++;
+
+    *ptr = "S";
+    ptr++;
+
+    *ptr = "P";
+    ptr++;
+
+    *ptr = "\0";
+
+    shmdt(ptr);
+
+    return 0;
+}

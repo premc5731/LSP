@@ -62,3 +62,37 @@ where as in in normal read() whole inode will be copied int IIT then block will 
 thats why mmap where directly data from block is copied into local buffer it is very advance and fast way of file io
 
 ball with rubber band example fro mmap() and unmap()
+
+---------------------------------------------------------------------------------------------
+
+date :- 18|01|2026
+
+Multi tasking -> multi threading, multi processing
+
+in linux
+fork() -> multi threading (thread == light weight process)
+fork() + exec() -> multi processing
+
+multi threading :- multiple threads to achieve multi tasking
+multi processing :- multiple processes to achieve multi tasking
+
+standardisation :- ek cheez ko standard karna i.e vo cheez har jagah chalenge 
+ex in india pehle barter system tha so in raj , guj and mah alag alag chhezo ka barter with different values thi lekin 
+badh me indian currency jo pure india me standard he jo har jagah chalenga india me 
+
+simillarly POSIX is standardisation in linux i.e before standardisation
+different comapnies have their different definations of the syscall
+ex :- fork() -> defination in ubuntu and fedora are different but after standardisation the defination becomes same and because of that
+we have achieved portable os i.e the definations became same which is helpful to developers and the programs on ubuntu and can be easily run on fedora or debian i.e all linux distros
+
+-----------------------------------------------------------------------
+
+gcc by default links libc (glib) lirary 
+but in multithreading we need pthread library so we need to explict tell the gcc to link that library 
+
+"gcc demo.txt -lpthread"
+
+pthread is standard library of POSIX standardisation
+
+thread has its own stack in the process address space only so if parent thread exit then child thread also dies becauswe both are in same address space only
+
