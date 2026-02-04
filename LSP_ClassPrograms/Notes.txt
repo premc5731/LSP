@@ -96,3 +96,14 @@ pthread is standard library of POSIX standardisation
 
 thread has its own stack in the process address space only so if parent thread exit then child thread also dies becauswe both are in same address space only
 
+------------------------------------------------------------------------------
+
+Date :- 31|01|2026
+
+OS = kernel + shell(UI) + other utilities
+
+normal user, super user, root user
+super use = certified known regarding os
+Device file is used to map device and device driver
+
+

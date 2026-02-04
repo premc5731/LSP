@@ -1,0 +1,6 @@
+create 2 .so and 1 client will call both so in the same prgm
+create 2 so in that 1 so will call another so ex check perfect , sum factors
+
+create sting.h
+
+create class arithmetic in cpp and do .so

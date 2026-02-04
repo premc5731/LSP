@@ -1,0 +1,119 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<pthread.h>
+#include<fcntl.h>
+#include<unistd.h>
+#include<errno.h>
+
+
+void * CapC(void *p)
+{
+    int fd = 0;
+    int iRet = 0, iCount = 0, i = 0;
+    char Buffer[1024] = {'\0'};
+
+    fd = open("./PPA.txt", O_RDONLY);
+    printf("CapC's fd : %d\n",fd);
+
+    while((iRet = read(fd, Buffer, sizeof(Buffer))) != 0)
+    {
+        for(i = 0; i < iRet; i++)
+        {
+            if((Buffer[i] >= 'A') && (Buffer[i] <= 'Z'))
+            {
+                iCount++;
+            }
+        }
+    }
+
+    close(fd);
+    printf("Number of capital characters : %d\n",iCount);
+    pthread_exit((int *)iCount);
+}
+
+void * SmallC(void *p)
+{
+    int fd = 0;
+    int iRet = 0, iCount = 0, i = 0;
+    char Buffer[1024] = {'\0'};
+
+    fd = open("./LB.txt", O_RDONLY);
+    printf("SmallC's fd : %d\n",fd);
+
+    while((iRet = read(fd, Buffer, sizeof(Buffer))) != 0)
+    {
+        for(i = 0; i < iRet; i++)
+        {
+            if((Buffer[i] >= 'a') && (Buffer[i] <= 'z'))
+            {
+                iCount++;
+            }
+        }
+    }
+
+    close(fd);
+
+    printf("Number of small characters : %d\n",iCount);
+    pthread_exit((int *)iCount);
+}
+
+
+int main()
+{
+    pthread_t TID1, TID2;
+    int * iRet1, iRet2;
+    int iRet = 0;
+    int fd = 0;
+    char str[50] = {'\0'};
+
+    printf("Main thread started\n");
+
+    iRet = pthread_create(
+                            &TID1,       // Thread id
+                            NULL,       // Thread attributes
+                            CapC,       // Thread callback function
+                            NULL        // parameters for the call back function
+                        );      
+    
+    if(iRet == 0)
+    {
+        printf("Thread created successfully with TID : %lu \n",(unsigned long)TID1);
+
+    }
+
+    iRet = pthread_create(
+                            &TID2,       // Thread id
+                            NULL,       // Thread attributes
+                            SmallC,      // Thread callback function
+                            NULL        // parameters for the call back function
+                        );      
+    
+    if(iRet == 0)
+    {
+        printf("Thread created successfully with TID : %lu \n",(unsigned long)TID2);
+
+    }
+
+    //main ko wait kara
+    pthread_join(TID1, &iRet1);
+    pthread_join(TID2, &iRet2);
+
+    fd = creat("./threading.txt",0777);
+
+    iRet = snprintf(str, sizeof(str),"No of Cap's : %d\n", (int)iRet1 );
+    iRet = write(fd, str, iRet);
+
+    iRet = snprintf(str, sizeof(str),"No of Small's : %d\n", (int)iRet2 );
+    iRet = write(fd, str, iRet);
+
+    if(iRet < 0)
+    {
+        perror("Error : ");
+        return -1;
+    }
+
+
+    printf("End of Main thread\n");
+
+    return 0;
+}
