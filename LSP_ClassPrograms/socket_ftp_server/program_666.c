@@ -14,7 +14,7 @@ int main()
         return -1;
     }
 
-    printf("Socket created successfullt with %d \n",ServerSocket);
+    printf("Socket created successfully with %d \n",ServerSocket);
 
     return 0;
 }
