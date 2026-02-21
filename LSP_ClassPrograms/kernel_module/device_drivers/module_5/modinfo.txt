@@ -1,0 +1,10 @@
+filename:       /home/prem/Desktop/Github_repos/LSP_Applications/LSP_ClassPrograms/kernel_module/device_drivers/module_5/Hello.ko
+description:    It is a Marvellous Infosystems Driver
+author:         Prem Choudhary
+license:        GPL
+srcversion:     B32BE1EDA725F8D7D4AE8F5
+depends:        
+retpoline:      Y
+name:           Hello
+vermagic:       6.8.0-100-generic SMP preempt mod_unload modversions 
+parm:           MarvellousNo:Its a integer variable (int)
