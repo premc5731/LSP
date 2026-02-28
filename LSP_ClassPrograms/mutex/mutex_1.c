@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <pthread.h>
+
+
+int icnt = 0;
+
+void * Increment(void * arg)
+{
+    // critical section start
+    icnt++;
+    // critical section end
+
+    printf("%d\n",icnt);
+
+    return NULL;
+}
+
+int main()
+{
+    pthread_t t1, t2;
+
+    pthread_create(&t1, NULL, Increment, NULL);
+    pthread_create(&t2, NULL, Increment, NULL);
+
+    pthread_join(t1, NULL);
+    pthread_join(t2, NULL);
+    
+    return 0;
+}
