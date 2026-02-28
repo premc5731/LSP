@@ -98,6 +98,7 @@ thread has its own stack in the process address space only so if parent thread e
 
 ------------------------------------------------------------------------------
 
+
 Date :- 31|01|2026
 
 OS = kernel + shell(UI) + other utilities
@@ -106,4 +107,39 @@ normal user, super user, root user
 super use = certified known regarding os
 Device file is used to map device and device driver
 
+------------------------------------------------------------------------------
+
+Date 28-02-2026
+
+semaphore : it controls the no of threads will use the object in IPC 
+binary semaphore == mutex
+
+atomic : only 1 operation is called as atomic ex: a= 10
+non atomic = a = a+10
+
+Rase condition : a scenario where the final output will depends upon the execution of the sequence of thread
+
+mutex = mutual exclusion
+
+critical section: the part of code where you are updating something globally and protect the code from segmentation fault or 
+a section which contains a shared resource and to protect that shared resource from being corrupted we use mutex lock 
+
+without pthread also we can do multi threading using fork()
+
+pthread internally calls fork()
+
+we can also get the concept of mutex by using a global boolean flag 
+like if(flag == true)by 2 nd thread will wait for 1 st thread to comple the task and make flag is true after completing the work by 1st thread
+so here we have a issue that at line if(flag == true) at that line flag == true executed and the a context switch then there will be issue since it is not a "atomic operation" which is a major issue so we use mutex which gives 100% synchronisation 
+so if we use "flag" like concept for synchronisation then we are not sure 100 % synchronisation because of that context switch problem
+
+the mutex lock is handeled by kernel ans it is a kernel resourec which is shared by multiple processes
+
+pthread_mutex_t
+
+pthread_mutex_init
+pthread_mutex_destroy
+
+pthread_mutex_lock
+pthread_mutex_unlock
 
