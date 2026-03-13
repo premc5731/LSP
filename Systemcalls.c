@@ -82,6 +82,9 @@ process subsystem
     nice() (priority)
     getpriority()
     setpriority()
+    pthread_create()
+    pthread_join()
+    pthread_exit()
 
 Inter process Sub system
     mkfifo()
@@ -93,6 +96,7 @@ Inter process Sub system
     msgsnd()
     msgrcv()
     signal()
-    kill()
+    kill()    
 
 */
+

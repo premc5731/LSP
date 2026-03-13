@@ -143,3 +143,22 @@ pthread_mutex_destroy
 pthread_mutex_lock
 pthread_mutex_unlock
 
+without mutex 
+icnt++ (ict = icnt + 1)
+it is non atomic and if 1st thread made icnt + 1 then context switch 
+and then 2nd thread will see icnt as 0 so it will make icnt as 1 and now context switches to 1st thread and it will now initialise and icnt becomes 1
+expected output is 1, 2 but we got 1, 1 so we use mutex
+
+here when 2nd thread will wait for 1st thread lock relese 
+imp here 2nd thread will wait it will not sleep
+here wait is like notify wait
+
+semaphore(2 types)
+ binary semaphore (mutex) => true or false
+ counting semaphore (conditional variable)
+
+* incase of mutex we dont notify
+* incase of counting semaphore we notify other thread using  if else
+
+pthread contains a thread pool and it assign the thread from that pool
+
