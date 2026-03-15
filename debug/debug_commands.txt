@@ -1,0 +1,7 @@
+gcc debug_1.c -o myexe -g
+gdb ./myexe
+break main
+print a
+next
+step :- to jump in to the function
+quit :- to quit debugging
